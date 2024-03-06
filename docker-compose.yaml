@@ -21,7 +21,7 @@ services:
     image: bxwill/bugzilla:5.0.6
     restart: always
     ports:
-      - 80:80
+      - 8080:80
       - 443:443
     environment:
       BUGZILLA_ADMIN_EMAIL: "khazi.devops@gmail.com"
@@ -81,7 +81,7 @@ services:
       - testlink-net
 
 networks:
-  bugzilla-net:
+  bugzilla-net:     
   testlink-net:
 
 volumes:
