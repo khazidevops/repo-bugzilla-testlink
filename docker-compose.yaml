@@ -8,6 +8,7 @@ services:
       - 5432:5432
     volumes:
       - bugzilla-db-data:/var/lib/postgresql/data
+     # - ./bugzilla_backup.sql:/docker-entrypoint-initdb.d/bugzilla_backup.sql  # Mount the SQL file into the container
     environment:
       POSTGRES_DB: "bugs"
       POSTGRES_USER: "bugs"
