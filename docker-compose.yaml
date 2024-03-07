@@ -8,8 +8,8 @@ services:
       - 5432:5432
     volumes:
       - bugzilla-db-data:/var/lib/postgresql/data
+     # - ./bugzilla_backup.sql:/docker-entrypoint-initdb.d/bugzilla_backup.sql  # Mount the SQL file into the container
     environment:
-      TZ: "Asia/Kolkata" # Set timezone to India
       POSTGRES_DB: "bugs"
       POSTGRES_USER: "bugs"
       POSTGRES_PASSWORD: "bugs"
@@ -24,7 +24,6 @@ services:
       - 8080:80
       - 443:443
     environment:
-      TZ: "Asia/Kolkata" # Set timezone to India
       BUGZILLA_ADMIN_EMAIL: "khazi.devops@gmail.com"
       BUGZILLA_ADMIN_NAME: "administrator"
       BUGZILLA_ADMIN_PASS: "Nasru@2022"
@@ -47,7 +46,6 @@ services:
       - tl-mariadb-data:/bitnami/mariadb
       - ./tl_testlink_backup_utf8.sql:/docker-entrypoint-initdb.d/tl_testlink_backup_utf8.sql
     environment:
-      - TZ: "Asia/Kolkata" # Set timezone to India
       - ALLOW_EMPTY_PASSWORD=yes
       - MARIADB_USER=tl_testlink
       - MARIADB_DATABASE=tl_testlink
@@ -63,7 +61,6 @@ services:
     volumes:
       - tl-testlink-data:/bitnami/testlink
     environment:
-      - TZ: "Asia/Kolkata" # Set timezone to India
       - ALLOW_EMPTY_PASSWORD=yes
       - TESTLINK_DATABASE_HOST=tl-mariadb
       - TESTLINK_DATABASE_PORT_NUMBER=3306
